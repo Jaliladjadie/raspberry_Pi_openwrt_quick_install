@@ -1,7 +1,7 @@
 cat <<'EOF' >/etc/config/network
 
 config interface 'loopback'
-        option device 'lo'
+	option device 'lo'
         option proto 'static'
         option ipaddr '127.0.0.1'
         option netmask '255.0.0.0'
@@ -17,7 +17,10 @@ config device
 
 config interface 'lan'
         option device 'br-lan'
-        option proto 'dhcp'
+        option proto 'static'
+        option ipaddr '192.168.178.32'
+        option netmask '255.255.255.0'
+        option ip6assign '60'
         option peerdns '0'
         option dns '1.1.1.1 1.0.0.1 8.8.8.8 8.4.4.8'
 
@@ -27,12 +30,9 @@ config interface 'fallback'
         option ipaddr '192.168.1.1'
         option netmask '255.255.255.0'
         option ip6assign '60'
-config interface 'wwan'
-        option proto 'dhcp'
-        option peerdns '0'
-        option dns '1.1.1.1 8.8.8.8'
 EOF
 wget -U "" -O expand-root.sh "https://openwrt.org/_export/code/docs/guide-user/advanced/expand_root?codeblock=0"
 . ./expand-root.sh
 rm -f ./expand-root.sh
 sh /etc/uci-defaults/70-rootpt-resize
+reboot
