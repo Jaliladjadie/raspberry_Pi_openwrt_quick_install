@@ -31,6 +31,7 @@ config interface 'fallback'
         option netmask '255.255.255.0'
         option ip6assign '60'
 EOF
+opkg update && opkg install luci-app-advanced-reboot
 wget -U "" -O expand-root.sh "https://openwrt.org/_export/code/docs/guide-user/advanced/expand_root?codeblock=0"
 . ./expand-root.sh
 rm -f ./expand-root.sh
