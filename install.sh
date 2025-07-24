@@ -32,7 +32,7 @@ config interface 'wwan'
         option peerdns '0'
         option dns '1.1.1.1 8.8.8.8'
 EOF
-wget -U "" -O expand-root.sh "https://openwrt.org/_export/code/docs/guide-user/advanced/expand_root?codeblock=0
+wget -U "" -O expand-root.sh "https://openwrt.org/_export/code/docs/guide-user/advanced/expand_root?codeblock=0"
 . ./expand-root.sh
 rm -f ./expand-root.sh
 sh /etc/uci-defaults/70-rootpt-resize
