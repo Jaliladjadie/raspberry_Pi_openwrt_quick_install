@@ -22,7 +22,7 @@ config interface 'lan'
         option netmask '255.255.255.0'
         option ip6assign '60'
         option peerdns '0'
-        option dns '1.1.1.1 1.0.0.1 8.8.8.8 8.4.4.8'
+        option dns '1.1.1.1 1.0.0.1 8.8.8.8 8.8.4.4'
 
 config interface 'fallback'
         option device 'br-lan'
